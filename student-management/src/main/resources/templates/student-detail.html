@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thong Tin Sinh Vien</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .card { border: 1px solid #ddd; border-radius: 4px; padding: 16px; max-width: 480px; }
+        .card h2 { margin-top: 0; }
+        .field-label { font-weight: bold; width: 100px; display: inline-block; }
+        .actions { margin-top: 16px; display: flex; gap: 8px; }
+        .button-link, .button-delete { padding: 6px 12px; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; display: inline-block; }
+        .button-link { background-color: #007bff; color: #fff; }
+        .button-link:hover { background-color: #0056b3; }
+        .button-delete { background-color: #dc3545; color: #fff; }
+        .button-delete:hover { background-color: #a71d2a; }
+    </style>
+</head>
+<body>
+<a href="/students">&laquo; Quay ve danh sach</a>
+
+<div class="card">
+    <h2>Thong Tin Sinh Vien</h2>
+    <p><span class="field-label">ID:</span> <span th:text="${student.id}">ID</span></p>
+    <p><span class="field-label">Ho va Ten:</span> <span th:text="${student.name}">Ten</span></p>
+    <p><span class="field-label">Email:</span> <span th:text="${student.email}">Email</span></p>
+    <p><span class="field-label">Tuoi:</span> <span th:text="${student.age}">0</span></p>
+
+    <div class="actions">
+        <a class="button-link"
+           th:href="@{'/students/' + ${student.id} + '/edit'}">Chinh Sua</a>
+
+        <form th:action="@{'/students/' + ${student.id} + '/delete'}"
+              method="post"
+              onsubmit="return confirm('Ban co chac chan muon xoa sinh vien nay?');">
+            <button class="button-delete" type="submit">Xoa</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+

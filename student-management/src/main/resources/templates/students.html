@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách sinh viên</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .text-danger { color: red; }
+        .toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 12px; }
+        .search-form { margin-bottom: 0; }
+        .search-input { padding: 6px 8px; width: 240px; }
+        .search-button { padding: 6px 12px; }
+        .primary-button { padding: 6px 12px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; }
+        .primary-button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+<h1>Danh sách sinh viên (SSR)</h1>
+
+<div class="toolbar">
+    <form class="search-form" action="/students" method="GET">
+        <input class="search-input"
+               type="text"
+               name="keyword"
+               placeholder="Nhập tên..."
+               th:value="${keyword}" />
+        <button class="search-button" type="submit">Tìm</button>
+    </form>
+    <a class="primary-button" href="/students/new">Thêm mới</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Họ và tên</th>
+            <th>Email</th>
+            <th>Tuổi</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="student : ${dsSinhVien}"
+            th:classappend="${student.age} &lt; 18 ? 'text-danger' : ''">
+            <td th:text="${student.id}">ID mẫu</td>
+            <td th:text="${student.name}">Họ và tên mẫu</td>
+            <td th:text="${student.email}">Email mẫu</td>
+            <td th:text="${student.age}">0</td>
+            <td>
+                <a th:href="@{'/students/' + ${student.id}}">Xem chi tiết</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
