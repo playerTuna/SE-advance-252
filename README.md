@@ -93,3 +93,11 @@ Do schema không quy định cột name là `NOT NULL`, nên khi insert một si
 Nguyên nhân khiến dữ liệu trong database bị mất mỗi khi tắt ứng dụng và chạy lại là do cấu hình Hibernate được đặt là `spring.jpa.hibernate.ddl-auto=create`, cấu hình này có nghĩa là mỗi lần ứng dụng khởi động, Hibernate sẽ xóa toàn bộ bảng cũ và tạo lại schema mới, dẫn đến việc dữ liệu bị reset hoàn toàn. Trong môi trường thực tế (production), cấu hình này thường được đổi thành `update` hoặc `none` để tránh mất dữ liệu. Vì vậy, dữ liệu trong database bị tự động reset sau mỗi lần restart ứng dụng.
 
 ### Screenshot các module được yêu cầu của Lab 4
+
+#### Trang danh sách:
+
+#### Trang chi tiết
+
+#### Thêm mới
+
+#### Chỉnh sửa
