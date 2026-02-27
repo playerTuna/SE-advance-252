@@ -7,20 +7,27 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #a8d5ff 0%, #d0e8ff 100%);
             min-height: 100vh;
             padding: 40px 20px;
         }
-        .back-link {
+        .back-button {
             display: inline-block;
-            color: white;
+            padding: 10px 20px;
+            background-color: white;
+            color: #2d3748;
             text-decoration: none;
             margin-bottom: 20px;
-            font-weight: 500;
-            transition: opacity 0.3s;
+            font-weight: 600;
+            border-radius: 8px;
+            border: 2px solid #cbd5e0;
+            transition: all 0.3s;
+            cursor: pointer;
         }
-        .back-link:hover {
-            opacity: 0.8;
+        .back-button:hover {
+            background-color: #f7fafc;
+            border-color: #a0aec0;
+            transform: translateY(-1px);
         }
         .form-container { 
             max-width: 600px;
@@ -71,6 +78,7 @@
             gap: 12px;
         }
         .primary-button { 
+            flex: 1;
             padding: 12px 32px;
             background-color: #667eea;
             color: white;
@@ -89,6 +97,7 @@
             transform: translateY(0);
         }
         .secondary-link { 
+            flex: 1;
             padding: 12px 32px;
             text-decoration: none;
             border-radius: 8px;
@@ -98,6 +107,7 @@
             font-size: 15px;
             transition: border-color 0.3s, color 0.3s;
             display: inline-block;
+            text-align: center;
         }
         .secondary-link:hover {
             border-color: #a0aec0;
@@ -106,7 +116,7 @@
     </style>
 </head>
 <body>
-<a class="back-link" href="/students">&laquo; Quay về danh sách</a>
+<a class="back-button" href="/students">&laquo; Quay về danh sách</a>
 
 <div class="form-container">
     <h1 th:text="${isEdit} ? 'Chỉnh Sửa Sinh Viên' : 'Thêm Mới Sinh Viên'">Form Sinh Viên</h1>
