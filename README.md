@@ -95,9 +95,11 @@ Nguyên nhân khiến dữ liệu trong database bị mất mỗi khi tắt ứn
 ### Screenshot các module được yêu cầu của Lab 4
 
 #### Trang danh sách:
-
+<img width="1920" height="1080" alt="Screenshot (1335)" src="https://github.com/user-attachments/assets/0d55dfd6-be86-4539-a577-0afe8123ff1b" />
 #### Trang chi tiết
-
+<img width="1920" height="1080" alt="Screenshot (1336)" src="https://github.com/user-attachments/assets/a26aee40-b473-4307-8a19-97171bfc3ada" />
 #### Thêm mới
-
+<img width="1920" height="1080" alt="Screenshot (1338)" src="https://github.com/user-attachments/assets/9d090f6a-dca2-42c8-9053-f644bd61ffa9" />
 #### Chỉnh sửa
+<img width="1920" height="1080" alt="Screenshot (1337)" src="https://github.com/user-attachments/assets/517c56dd-f36d-4d4f-b4a0-9d606ff61e5d" />
+
