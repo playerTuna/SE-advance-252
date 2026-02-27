@@ -8,9 +8,9 @@
 
 Ứng dụng được deploy tại:
 
-- Base URL: `https://se-advance-252.onrender.com`
-- List View (Danh sách sinh viên): `https://se-advance-252.onrender.com/students`
-- Detail View (Chi tiết sinh viên): `https://se-advance-252.onrender.com/students/{id}`
+- Base URL: https://se-advance-252.onrender.com
+- List View (Danh sách sinh viên): https://se-advance-252.onrender.com/students
+- Detail View (Chi tiết sinh viên): https://se-advance-252.onrender.com/students/{id}
 
 ### Mô tả giao diện Web
 
