@@ -109,7 +109,7 @@
 <a class="back-link" href="/students">&laquo; Quay về danh sách</a>
 
 <div class="form-container">
-    <h1 th:text="${isEdit} ? 'Chinh Sua Sinh Vien' : 'Them Moi Sinh Vien'">Form Sinh Vien</h1>
+    <h1 th:text="${isEdit} ? 'Chỉnh Sửa Sinh Viên' : 'Thêm Mới Sinh Viên'">Form Sinh Viên</h1>
 
     <form th:action="${isEdit} ? @{'/students/' + ${student.id}} : @{/students}"
           th:object="${student}"
