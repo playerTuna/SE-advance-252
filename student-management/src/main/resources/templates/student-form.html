@@ -4,19 +4,109 @@
     <meta charset="UTF-8">
     <title th:text="${isEdit} ? 'Chinh Sua Sinh Vien' : 'Them Moi Sinh Vien'">Form Sinh Vien</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; }
-        .form-container { max-width: 480px; }
-        .form-field { margin-bottom: 12px; }
-        .form-field label { display: block; margin-bottom: 4px; }
-        .form-field input { width: 100%; padding: 6px 8px; box-sizing: border-box; }
-        .actions { margin-top: 16px; display: flex; gap: 8px; }
-        .primary-button { padding: 6px 12px; background-color: #007bff; color: #fff; border-radius: 4px; border: none; cursor: pointer; }
-        .primary-button:hover { background-color: #0056b3; }
-        .secondary-link { padding: 6px 12px; text-decoration: none; border-radius: 4px; border: 1px solid #ccc; color: #333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .back-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        .back-link:hover {
+            opacity: 0.8;
+        }
+        .form-container { 
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+        h1 {
+            color: #2d3748;
+            margin-bottom: 32px;
+            font-size: 28px;
+        }
+        .form-field { 
+            margin-bottom: 24px;
+        }
+        .form-field label { 
+            display: block;
+            margin-bottom: 8px;
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .form-field input { 
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background: #f7fafc;
+        }
+        .form-field input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: white;
+        }
+        .form-field input[readonly] {
+            background: #e2e8f0;
+            color: #718096;
+            cursor: not-allowed;
+        }
+        .actions { 
+            margin-top: 32px;
+            display: flex;
+            gap: 12px;
+        }
+        .primary-button { 
+            padding: 12px 32px;
+            background-color: #667eea;
+            color: white;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        .primary-button:hover {
+            background-color: #5568d3;
+            transform: translateY(-1px);
+        }
+        .primary-button:active {
+            transform: translateY(0);
+        }
+        .secondary-link { 
+            padding: 12px 32px;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 2px solid #cbd5e0;
+            color: #4a5568;
+            font-weight: 600;
+            font-size: 15px;
+            transition: border-color 0.3s, color 0.3s;
+            display: inline-block;
+        }
+        .secondary-link:hover {
+            border-color: #a0aec0;
+            color: #2d3748;
+        }
     </style>
 </head>
 <body>
-<a href="/students">&laquo; Quay ve danh sach</a>
+<a class="back-link" href="/students">&laquo; Quay về danh sách</a>
 
 <div class="form-container">
     <h1 th:text="${isEdit} ? 'Chinh Sua Sinh Vien' : 'Them Moi Sinh Vien'">Form Sinh Vien</h1>
@@ -31,24 +121,24 @@
         </div>
 
         <div class="form-field">
-            <label>Ho va Ten</label>
-            <input type="text" th:field="*{name}" required />
+            <label>Họ và Tên</label>
+            <input type="text" th:field="*{name}" required placeholder="Nhập họ và tên sinh viên" />
         </div>
 
         <div class="form-field">
             <label>Email</label>
-            <input type="email" th:field="*{email}" required />
+            <input type="email" th:field="*{email}" required placeholder="example@email.com" />
         </div>
 
         <div class="form-field">
-            <label>Tuoi</label>
-            <input type="number" th:field="*{age}" min="0" required />
+            <label>Tuổi</label>
+            <input type="number" th:field="*{age}" min="0" required placeholder="Nhập tuổi" />
         </div>
 
         <div class="actions">
             <button class="primary-button" type="submit"
-                    th:text="${isEdit} ? 'Cap Nhat' : 'Luu'">Luu</button>
-            <a class="secondary-link" href="/students">Huy</a>
+                    th:text="${isEdit} ? 'Cập nhật' : 'Lưu'">Lưu</button>
+            <a class="secondary-link" href="/students">Hủy</a>
         </div>
     </form>
 </div>

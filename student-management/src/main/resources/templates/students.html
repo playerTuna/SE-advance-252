@@ -4,35 +4,144 @@
     <meta charset="UTF-8">
     <title>Danh sách sinh viên</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-        .text-danger { color: red; }
-        .toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 12px; }
-        .search-form { margin-bottom: 0; }
-        .search-input { padding: 6px 8px; width: 240px; }
-        .search-button { padding: 6px 12px; }
-        .primary-button { padding: 6px 12px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; }
-        .primary-button:hover { background-color: #0056b3; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 32px;
+        }
+        h1 { 
+            color: #2d3748;
+            margin-bottom: 24px;
+            font-size: 28px;
+        }
+        .toolbar { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .search-form { 
+            display: flex;
+            gap: 8px;
+            background: #f7fafc;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .search-input { 
+            padding: 10px 16px;
+            width: 280px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-input:focus {
+            border-color: #667eea;
+        }
+        .search-button { 
+            padding: 10px 20px;
+            background-color: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        .search-button:hover {
+            background-color: #5568d3;
+        }
+        .primary-button { 
+            padding: 10px 24px;
+            background-color: #48bb78;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+        .primary-button:hover {
+            background-color: #38a169;
+        }
+        table { 
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td { 
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th { 
+            background-color: #f7fafc;
+            color: #2d3748;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+        td {
+            color: #4a5568;
+        }
+        tr:hover {
+            background-color: #f7fafc;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .text-danger { 
+            color: #e53e3e;
+            font-weight: 500;
+        }
+        td a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        td a:hover {
+            color: #5568d3;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-<h1>Danh sách sinh viên (SSR)</h1>
+<div class="container">
+    <h1>Danh sách sinh viên</h1>
 
-<div class="toolbar">
-    <form class="search-form" action="/students" method="GET">
-        <input class="search-input"
-               type="text"
-               name="keyword"
-               placeholder="Nhập tên..."
-               th:value="${keyword}" />
-        <button class="search-button" type="submit">Tìm</button>
-    </form>
-    <a class="primary-button" href="/students/new">Thêm mới</a>
-</div>
+    <div class="toolbar">
+        <form class="search-form" action="/students" method="GET">
+            <input class="search-input"
+                   type="text"
+                   name="keyword"
+                   placeholder="Nhập tên sinh viên..."
+                   th:value="${keyword}" />
+            <button class="search-button" type="submit">Tìm kiếm</button>
+        </form>
+        <a class="primary-button" href="/students/new">Thêm mới</a>
+    </div>
 
-<table>
+    <table>
     <thead>
         <tr>
             <th>ID</th>
@@ -55,6 +164,7 @@
         </tr>
     </tbody>
 </table>
+</div>
 </body>
 </html>
 
